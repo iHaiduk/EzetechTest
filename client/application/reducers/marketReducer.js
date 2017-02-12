@@ -45,7 +45,7 @@ export default function reducer (state = {
                 const yForUpdate = data[key].values.map(d => d[state.persentType ? 'percent' : 'y']);
                 const min = Math.round(Math.min(...yForUpdate));
                 const max = Math.ceil(Math.max(...yForUpdate));
-                state.yScale[key] = d3.scale.linear().domain([max, min]).nice().range([0, 250]);
+                state.yScale[key] = d3.scale.linear().domain([max, min]).nice().range([0, 230]);
             });
 
             state = {...state, ...{data}};
@@ -69,7 +69,7 @@ export default function reducer (state = {
                 const max = Math.ceil(Math.max(...yForUpdate));
 
                 data[key].values = values;
-                state.yScale[key] = d3.scale.linear().domain([max, min]).nice().range([0, 250]);
+                state.yScale[key] = d3.scale.linear().domain([max, min]).nice().range([0, 230]);
             });
 
             state = {...state, ...{data}};
