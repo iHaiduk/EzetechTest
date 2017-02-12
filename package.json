@@ -7,7 +7,7 @@
   },
   "scripts": {
     "build-client": "cp -a client/. public/",
-    "prestart": "npm run build-client",
+    "prestart": "./node_modules/.bin/webpack --config webpack.production.config.js --progress --colors",
     "start": "node server/index.js",
     "dev": "webpack -d --watch",
     "build": "./node_modules/.bin/webpack --config webpack.production.config.js --progress --colors",

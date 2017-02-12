@@ -27,7 +27,7 @@ export default function reducer (state = {
         FB: null,
         MSFT: null
     },
-    persentType: true
+    persentType: false
 }, action) {
     switch (action.type) {
         case "SET_DATA": {
