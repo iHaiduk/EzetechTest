@@ -29,10 +29,10 @@ export default class LineChart extends Component {
     async componentDidMount () {
         const self = this;
         try {
-            const {data} = await axios.get('http://localhost:3000/market-history');
+            const {data} = await axios.get('/market-history');
             self.props.setData(data);
 
-            const socket = io('http://localhost:3000');
+            const socket = io();
             socket.on('market events', data => {
                 self.props.updateData(data.changes);
             });
