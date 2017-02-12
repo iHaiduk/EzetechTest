@@ -38,7 +38,7 @@ export default function reducer (state = {
                 data[key] = {
                     labels: key,
                     values: action.data[key].map((y, x) => {
-                        return {x, y, percent: (y / action.data[key][0]) * 100};
+                        return {x, y, percent: ((y - action.data[key][0]) / action.data[key][0]) * 100};
                     })
                 };
 
@@ -61,7 +61,7 @@ export default function reducer (state = {
                 const values = [...data[key].values];
                 const value = values[values.length - 1].y;
                 const newValue = value + +(action.data[key] || 0);
-                const percent = (newValue / values[0].y) * 100;
+                const percent = ((newValue - values[0].y) / values[0].y) * 100;
                 values.push({x: values.length, y: newValue, percent});
 
                 const yForUpdate = values.map(d => d[state.persentType ? 'percent' : 'y']);
